@@ -8,12 +8,11 @@ body {
 }
 
 a {
-  color: #1C9C94;
-  text-decoration: none;
+  color: #2563eb; /* moderná modrá */
 }
 
 a:hover {
-  opacity: 0.5;
+  color: #1d4ed8;
 }
 
 article {
@@ -32,7 +31,7 @@ header, main, footer {
 header {
   padding: 2em;
   text-align: center;
-  background-image: url('./img/bg.jpg');
+  background-image: url('./img/bg.png');
   background-size: cover;
   background-position: fixed;
   color: white;
@@ -169,3 +168,84 @@ footer {
     text-align: center;
   }
 }
+
+/* Hero Section */
+.hero-profile {
+    max-width: 700px;
+    margin: 20px auto 0;
+    line-height: 1.6;
+    font-size: 1rem;
+    color: rgba(255,255,255,0.9);
+}
+
+.hero-profile p {
+    margin-bottom: 3px;
+}
+
+.hero-profile strong {
+    font-weight: 600;
+}
+
+/* Hero Titles */
+.hero-titles h2,
+.hero-titles h3 {
+    margin: 5px 0;
+}
+
+.hero-titles h3 {
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        rgba(0,0,0,0.65),
+        rgba(0,0,0,0.45)
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px; /* riadi rozostupy medzi blokmi */
+}
+
+/* Social Icons */
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 44px;
+    height: 44px;
+    margin: 0 10px;
+
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.35);
+
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+
+    transition: all 0.25s ease;
+}
+
+.social-icons a:hover {
+    color: #fff;
+    border-color: #9ca3af;
+    background-color: rgba(156,163,175,0.12);
+    transform: translateY(-2px);
+}
+
+.social-icons i {
+    font-size: 18px;
+    border: none !important;
+    box-shadow: none !important;
+}
+
