@@ -12,45 +12,45 @@
 </head>
 
 <body>
-  <header>
-    <div>
-      <img src="./img/jt-foto.jpeg" alt="Jaroslav Takáč">
-    </div>
-    <h1>Jaroslav Takáč</h1>
+  <header class="hero">
+    <div class="hero-content">
+      <div class="hero-avatar">
+        <img src="./img/jt-foto.jpeg" alt="Jaroslav Takáč">
+      </div>
 
-  <div class="hero-titles">
-      <h3>Web Content & Frontend Specialist</h3>
-      <h3>Java / Full Stack Developer</h3>
-  </div>
+      <h1>Jaroslav Takáč</h1>
 
-    <section>
+      <div class="hero-titles">
+        <h3>Web Content & Frontend Specialist</h3>
+        <h3>Java / Full Stack Developer</h3>
+      </div>
+
       <div class="hero-profile">
         <p>
-            Hello! I am <strong>Jaroslav Takáč</strong> —  Web Content & Frontend Specialist focused on HTML, CSS and Java, with experience in CMS-based content management and large-scale web updates. I contribute to layout refinements and implementation of functional components in web projects.
+          Hello! I am <strong>Jaroslav Takáč</strong> — Web Content & Frontend Specialist focused on HTML, CSS and Java, with experience in CMS-based content management and large-scale web updates. I contribute to layout refinements and implementation of functional components in web projects.
         </p>
 
         <p>
-           I am actively expanding my expertise in Java, JavaScript, PHP and backend architecture, aiming to grow into a full-stack developer role.
+          I am actively expanding my expertise in Java, JavaScript, PHP and backend architecture, aiming to grow into a full-stack developer role.
         </p>
+      </div>
+
+      <section class="social-icons">
+        <a href="https://github.com/ritaly" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-github-alt"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/in/ritalyczywek/" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+
+        <a href="mailto:jaroslav.takac@email.com">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </section>
     </div>
-    </section>
-
-  <section class="social-icons">
-
-    <a href="https://github.com/ritaly" target="_blank">
-      <i class="fab fa-github-alt"></i>
-    </a>
-
-    <a href="https://www.linkedin.com/in/ritalyczywek/" target="_blank">
-      <i class="fab fa-linkedin-in"></i>
-    </a>
-
-    <a href="mailto:jaroslav.takac@email.com">
-      <i class="fas fa-envelope"></i>
-    </a>
-
-  </section>
   </header>
+
   <main>
     <section>
       <h3>Courses & Workshops</h3>
@@ -87,36 +87,74 @@
         </div>
       </article>
     </section>
-    <section>
-      <h3>Skills</h3>
-      <div class='skills'>
-        <div class='column'>
-          <h4>Good knowledge</h4>
-          <ul>
-            <li>HTML5</li>
-            <li>CSS</li>
-            <li>JavaScript ES5/6</li>
-            <li>SQL</li>
+
+    <section class="skills-section">
+      <h3>Technical Skills</h3>
+
+      <div class="skills-grid">
+
+        <div class="skills-block">
+          <h4>Web & Frontend</h4>
+          <ul class="skills-list">
+            <li>HTML5 – advanced layout and content editing</li>
+            <li>CSS3 – styling sections and templates</li>
+            <li>Bootstrap – responsive design basics</li>
+            <li>JavaScript – fundamentals</li>
+            <li>React – basics</li>
           </ul>
         </div>
-        <div class='column'>
-          <h4>Basic knowledge</h4>
-          <ul>
-            <li>jQuery</li>
-            <li>NodeJS</li>
-            <li>MongoDB</li>
-            <li>Django</li>
+
+        <div class="skills-block">
+          <h4>Backend Fundamentals</h4>
+          <ul class="skills-list">
+            <li>Java, Spring Boot – basics</li>
+            <li>PHP (Laravel) – basics</li>
+            <li>Node.js, Express – basics</li>
+            <li>MySQL, MongoDB – basics</li>
           </ul>
         </div>
-        <div>
-          <h4>Languages</h4>
-          <p>🇵🇱 Polish - Native speaker</p>
-          <p>🇬🇧 English - Proficient C1/C2</p>
-          <p>🇫🇷 French - Advanced - C1</p>
-          <p>🇪🇸 Spanish - Intermediate - B1/B2</p>
-          <p>🇩🇪 German - Elementary / Communicative - A2</p>
+
+        <div class="skills-block">
+          <h4>CMS & Content</h4>
+          <ul class="skills-list">
+            <li>Content and product management</li>
+            <li>Editing articles and pages</li>
+            <li>Website structure adjustments</li>
+            <li>SEO basics</li>
+          </ul>
+        </div>
+
+        <div class="skills-block">
+          <h4>Tools</h4>
+          <ul class="skills-list">
+            <li>Git, GitHub, GitLab</li>
+            <li>Docker</li>
+            <li>Visual Studio Code</li>
+            <li>IntelliJ IDEA</li>
+          </ul>
+        </div>
+
+        <div class="skills-block">
+          <h4>Methodologies</h4>
+          <ul class="skills-list">
+            <li>Agile / Scrum – basic understanding</li>
+          </ul>
         </div>
       </div>
+    </section>
+
+    <section class="languages">
+
+      <h3>Languages</h3>
+        <div class="skills-block">
+          <ul class="skills-list">
+            <li>🇸🇰 Slovak – Native speaker</li>
+            <li>🇨🇿 Czech – Advanced (C1)</li>
+            <li>🇬🇧 English – Intermediate (B1/B2)</li>
+            <li>🇩🇪 German – Intermediate (B1/B2)</li>
+          </ul>
+        </div>
+
     </section>
 
     <section>
@@ -155,8 +193,14 @@
       </article>
     </section>
   </main>
+
   <footer>
-    <p>Created by: <a href="https://www.flynerd.pl/">@flynerd</a>  / <a href="https://www.linkedin.com/in/ritalyczywek/">LinkedIn</a> / 2018 </p>
+    <p>
+      © 2026 Jaroslav Takáč ·
+      <a href="https://jaroslavtakac.eu">jaroslavtakac.eu</a> ·
+      <a href="https://github.com/" target="_blank">GitHub</a> ·
+      <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+    </p>
   </footer>
 </body>
 </html>

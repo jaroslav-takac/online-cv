@@ -1,251 +1,344 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 
+/* =========================
+   Base
+========================= */
+:root{
+  --bg-main: #f3f4f6;            /* svetlá sivá pre sekcie */
+  --text: #111827;               /* tmavý text */
+  --text-2: #374151;             /* sekundárny text */
+  --muted: #6b7280;              /* tlmený text */
+  --border: #d1d5db;             /* deliace čiary */
+  --link: #4b5563;               /* sivé linky */
+  --link-hover: #111827;         /* hover linkov */
+  --footer-bg: #111827;          /* tmavý footer */
+  --footer-text: #d1d5db;        /* text vo footeri */
+}
+
+* { box-sizing: border-box; }
+
 body {
   margin: 0;
-  font-family: 'Raleway';
+  font-family: 'Raleway', sans-serif;
   font-size: 16px;
   line-height: 1.8em;
+  color: var(--text);
+  background: #fff;
 }
 
+img { max-width: 100%; display: block; }
+
+/* Linky – default pre content */
 a {
-  color: #2563eb; /* moderná modrá */
+  color: var(--link);
+  text-decoration: none;
+  transition: color .2s ease;
 }
+a:hover { color: var(--link-hover); }
 
-a:hover {
-  color: #1d4ed8;
-}
-
-article {
-  padding:0 1em;
-}
-
-section{
-  margin: 1em;
-  padding: 1em;
-}
-
+/* Layout wrapper */
 header, main, footer {
   margin: 0 auto;
 }
 
-header {
-  padding: 2em;
+/* =========================
+   HERO (header)
+========================= */
+header.hero {
+  position: relative;
+  min-height: auto;
+  padding: 2.25em 1.5em;
   text-align: center;
-  background-image: url('./img/bg.png');
-  background-size: cover;
-  background-position: fixed;
-  color: white;
+  color: #fff;
+
+  background: url("./img/bg.png") center/cover no-repeat;
+  background-position: center 10%;
 }
 
-header section {
-  margin: 0 auto;
-  max-width: 640px;
+/* tmavý gradient overlay */
+header.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+        rgba(0,0,0,0.40),
+        rgba(0,0,0,0.20)
+  );
 }
 
-header img {
+.hero-content {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+header.hero img {
   border-radius: 50%;
-  max-width: 150px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
 }
 
-h1 {
+/* Názov */
+header.hero h1 {
   text-transform: uppercase;
-  margin: 1em 0;
+  letter-spacing: 2px;
+  margin: 0.9em 0 0.3em;
+  font-size: 2rem;
 }
 
-h3 {
+/* Titulky */
+.hero-titles h3 {
   text-transform: uppercase;
+  margin: 4px 0;
+  font-weight: 400;
+  opacity: 0.92;
+  letter-spacing: 0.6px;
 }
 
-h3, h4 {
-  font-weight: bold;
+/* Hero text */
+.hero-profile {
+  max-width: 640px; /* obmedziť šírku textu */
+  margin: 14px auto 0;
+  line-height: 1.65;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.9);
 }
 
+.hero-profile p { margin: 0 0 12px; }
+.hero-profile p:last-child { margin-bottom: 6px; }
+
+.hero-profile strong { font-weight: 600; }
+
+/* Social icons (iba v hero) */
+.social-icons {
+  margin-top: 15px;
+  background: transparent; /* dôležité */
+}
+
+.social-icons a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 44px;
+  height: 44px;
+  margin: 0 10px;
+
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.35);
+
+  color: rgba(255,255,255,0.85);
+  transition: transform .2s ease, background-color .2s ease, border-color .2s ease, color .2s ease;
+}
+
+.social-icons a:hover {
+  color: #fff;
+  border-color: #9ca3af;
+  background-color: rgba(156,163,175,0.12);
+  transform: translateY(-2px);
+}
+
+.social-icons i {
+  font-size: 18px;
+  border: none !important;
+  box-shadow: none !important;
+  background: none !important;
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
 main {
   max-width: 1140px;
+  padding: 0 0.5em;
 }
 
+/* Sekcie v main – svetlá sivá */
+main section {
+  margin: 1em;
+  padding: 1.4em 1.2em;
+  background-color: var(--bg-main);
+  border-radius: 8px;
+}
+
+/* Deliaca čiara medzi sekciami – už netreba (keď máš karty) */
 main section:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+  border-bottom: none;
 }
 
-.fab {
-  border: 1px solid white;
-  border-radius: 50%;
-  font-size: 1.5em;
-  width: 1.5em;
-  height: 1.5em;
-  line-height: 1.5em;
-  margin: 5px;
-  text-align: center;
+/* Nadpisy sekcií */
+main h3 {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0 0 0.8em;
+  letter-spacing: 0.8px;
+  color: var(--text);
 }
 
-a .fab {
-  color: white;
+h4 {
+  margin: 0.2em 0 0.4em;
+  font-weight: 700;
+  color: var(--text);
 }
 
+/* Article */
+article { padding: 0; }
+
+/* =========================
+   Courses layout
+========================= */
 .course, .skills {
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  gap: 0.5em 0;
 }
 
+/* title column */
 .course .title {
-  color: #509e98;
-  -ms-flex: 0 0 33.3%;
   flex: 0 0 33.3%;
-  max-width: 33%;
+  max-width: 33.3%;
+  color: var(--text-2);
 }
 
+/* HTML má preklep "descrition" – nechávam selector rovnaký */
 .course .descrition {
-  -ms-flex: 0 0 66.6%;
   flex: 0 0 66.6%;
   max-width: 66.6%;
+  color: var(--text-2);
 }
 
 .course .descrition p {
+  margin: 0.2em 0 1.2em;
   padding-left: 1em;
 }
 
-.skills .column {
-  -ms-flex: 0 0 50%%;
-  flex: 0 0 50%;
-  max-width: 50%;
+/* =========================
+   Skills
+========================= */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 60px;
 }
 
-.skills .column ul, ul.job-description {
-  list-style-type: none;
+.skills-block h4 {
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #111827;
 }
 
-.skills .column ul > li:before {
-  content: "►";
-  padding-right: 0.5em;
-  color: #509e98;
+.skills-block ul {
+    list-style: none;
+    padding-left: 0;
 }
 
+.skills-block li {
+    margin-bottom: 6px;
+    color: #374151;
+    position: relative;
+    padding-left: 16px;
+}
+
+.skills-block li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #6b7280;
+}
+
+/* trojuholníčky */
+.skills-list li::before {
+    content: "►";
+    position: absolute;
+    left: 0;
+    color: #6b7280;
+    font-size: 12px;
+}
+
+/* Languages block */
+.skills > div:not(.column) {
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin-top: 1em;
+  color: var(--text-2);
+}
+
+.flag {
+    font-size: 20px;
+}
+
+@media (max-width: 700px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================
+   Education / Experience
+========================= */
 .school, .job-title {
   text-transform: capitalize;
 }
 
 .school span, .job-title span {
-  color: #889499;
+  color: var(--muted);
   text-decoration: underline;
 }
 
-ul.job-description li:before{
+/* Job description checkmarks – zladené do neutrálnej sivej */
+ul.job-description li::before{
   content: "✔";
   padding-right: 0.5em;
-  color: #509e98;
+  color: var(--muted);
 }
 
+/* =========================
+   Footer
+========================= */
 footer {
- padding: 1em 1.5em;
- background: #A7B8BF;
- color: white;
- text-align: right;
+    padding: 10px 20px;
+    background: #2f343a;
+    color: #9ca3af;
+    text-align: center;
+    font-size: 13px;
 }
 
-@media only screen and (max-width: 768px) {
-  .course {
-    display: block;
-  }
+footer p {
+    margin: 0; /* odstráni default margin */
+}
 
-  .course .title, .course .descrition {
-    max-width: 100%;
-  }
+footer a {
+    color: #9ca3af;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    color: #ffffff;
+}
+
+/* =========================
+   Responsive
+========================= */
+@media only screen and (max-width: 768px) {
+  .course { display: block; }
+  .course .title, .course .descrition { max-width: 100%; }
+  .course .descrition p { padding-left: 0; }
 }
 
 @media only screen and (max-width: 576px) {
-  .skills {
-    display: block;
-  }
+  .skills { display: block; }
+  .skills .column { max-width: 100%; }
+  footer { text-align: center; }
 
-  .skills .column {
-    max-width: 100%;
-  }
-
-  footer {
-    text-align: center;
+  header.hero h1 {
+    font-size: 2rem;
   }
 }
-
-/* Hero Section */
-.hero-profile {
-    max-width: 700px;
-    margin: 20px auto 0;
-    line-height: 1.6;
-    font-size: 1rem;
-    color: rgba(255,255,255,0.9);
-}
-
-.hero-profile p {
-    margin-bottom: 3px;
-}
-
-.hero-profile strong {
-    font-weight: 600;
-}
-
-/* Hero Titles */
-.hero-titles h2,
-.hero-titles h3 {
-    margin: 5px 0;
-}
-
-.hero-titles h3 {
-    font-weight: 400;
-    opacity: 0.9;
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        rgba(0,0,0,0.65),
-        rgba(0,0,0,0.45)
-    );
-}
-
-.hero-content {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px; /* riadi rozostupy medzi blokmi */
-}
-
-/* Social Icons */
-
-.social-icons a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 44px;
-    height: 44px;
-    margin: 0 10px;
-
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.35);
-
-    color: rgba(255,255,255,0.8);
-    text-decoration: none;
-
-    transition: all 0.25s ease;
-}
-
-.social-icons a:hover {
-    color: #fff;
-    border-color: #9ca3af;
-    background-color: rgba(156,163,175,0.12);
-    transform: translateY(-2px);
-}
-
-.social-icons i {
-    font-size: 18px;
-    border: none !important;
-    box-shadow: none !important;
-}
-
