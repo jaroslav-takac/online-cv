@@ -161,14 +161,9 @@ main {
 /* Sekcie v main – svetlá sivá */
 main section {
   margin: 1em;
-  padding: 1.4em 1.2em;
+  padding: 2rem 3rem;   /* hore/dole 2rem, ľavo/pravo 3rem */
   background-color: var(--bg-main);
   border-radius: 8px;
-}
-
-/* Deliaca čiara medzi sekciami – už netreba (keď máš karty) */
-main section:not(:last-child) {
-  border-bottom: none;
 }
 
 /* Nadpisy sekcií */
@@ -200,15 +195,15 @@ article { padding: 0; }
 
 /* title column */
 .course .title {
-  flex: 0 0 33.3%;
-  max-width: 33.3%;
+  flex: 0 0 26%;
+  max-width: 26%;
   color: var(--text-2);
 }
 
 /* HTML má preklep "descrition" – nechávam selector rovnaký */
 .course .descrition {
-  flex: 0 0 66.6%;
-  max-width: 66.6%;
+  flex: 0 0 74%;
+  max-width: 74%;
   color: var(--text-2);
 }
 
